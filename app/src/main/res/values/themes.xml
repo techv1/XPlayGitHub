@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base theme — Compose handles all visual theming; this is just the window chrome -->
+    <style name="Theme.XPlay" parent="android:Theme.Material.NoTitleBar">
+        <item name="android:windowBackground">#0B0B0F</item>
+        <item name="android:statusBarColor">#0B0B0F</item>
+        <item name="android:navigationBarColor">#0B0B0F</item>
+    </style>
+</resources>

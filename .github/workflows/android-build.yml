@@ -5,7 +5,7 @@ on:
     branches: [ main, develop ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch:   # allows manual trigger from GitHub UI
+  workflow_dispatch:
 
 jobs:
   build:
@@ -23,9 +23,6 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Grant Gradle execute permission
-        run: chmod +x gradlew
-
       - name: Cache Gradle packages
         uses: actions/cache@v4
         with:
@@ -34,6 +31,9 @@ jobs:
             ~/.gradle/wrapper
           key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties', '**/libs.versions.toml') }}
           restore-keys: gradle-${{ runner.os }}-
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
 
       - name: Run unit tests
         run: ./gradlew testDebugUnitTest --stacktrace
@@ -72,7 +72,7 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Grant Gradle execute permission
+      - name: Make gradlew executable
         run: chmod +x gradlew
 
       - name: Run lint
