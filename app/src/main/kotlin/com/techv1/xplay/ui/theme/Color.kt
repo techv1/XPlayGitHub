@@ -2,27 +2,31 @@ package com.techv1.xplay.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// ── Background Scale ─────────────────────────────────────────────────────────
-val BackgroundDeep    = Color(0xFF0B0B0F)   // primary background, near-black with depth
-val BackgroundSurface = Color(0xFF13131A)   // elevated surfaces (cards, bottom sheet)
-val BackgroundCard    = Color(0xFF1C1C26)   // card backgrounds
+// ── Background & Surfaces (Vantablack Cinema) ──────────────────────────────
+val BackgroundDeep    = Color(0xFF131317)   // base Layer 0 (Midnight Slate)
+val BackgroundCinema  = Color(0xFF0B0B0F)   // Vantablack Cinema base override
+val BackgroundSurface = Color(0xFF1F1F23)   // Surface Layer 1 (Midnight Slate)
+val BackgroundCard    = Color(0xFF353439)   // Surface Layer 2 (Obsidian Vault)
 
-// ── Brand Accent ─────────────────────────────────────────────────────────────
-// Single saturated accent — used ONLY on: progress bars, active tab, primary CTA, focus rings
-val AccentPrimary     = Color(0xFF7B5CF0)   // electric violet
-val AccentLight       = Color(0xFFAB8FF7)   // lighter tint for text on dark bg
-val AccentContainer   = Color(0xFF2A1F55)   // accent used as container (pressed states)
+// ── Brand Accent (Netflix Red Energy) ──────────────────────────────────────
+val AccentPrimary     = Color(0xFFE50914)   // Netflix Red (Primary action, progress, focus)
+val AccentLight       = Color(0xFFFFB4AA)   // Soft red tint for secondary components
+val AccentContainer   = Color(0xFFE50914)   // Active container states
 
-// ── Content Scale ────────────────────────────────────────────────────────────
-val ContentPrimary    = Color(0xFFEEEEF5)   // primary text / icons
-val ContentSecondary  = Color(0xFF9898A8)   // secondary text, metadata
-val ContentTertiary   = Color(0xFF555568)   // hints, disabled, placeholder
+// ── Content & Typography (Crystalline White & Muted Nebula) ───────────────
+val ContentPrimary    = Color(0xFFFFFFFF)   // Crystalline White (Titles, high contrast)
+val ContentSecondary  = Color(0xFFA0A0B0)   // Muted Nebula (Descriptions, metadata)
+val ContentTertiary   = Color(0xFF555568)   // Disabled text, placeholders
+
+// ── Outline & Accents ────────────────────────────────────────────────────────
+val Outline           = Color(0xFFAF8782)
+val OutlineVariant    = Color(0xFF5E3F3B)
 
 // ── Semantic ─────────────────────────────────────────────────────────────────
-val Success           = Color(0xFF4CAF7D)
-val Error             = Color(0xFFEF5350)
-val Warning           = Color(0xFFFFB347)
+val Success           = Color(0xFF22C55E)
+val Error             = Color(0xFFEF4444)
+val Warning           = Color(0xFFF59E0B)
 
-// ── Gradient helpers (scrim over thumbnails) ─────────────────────────────────
-val ScrimStart        = Color(0x00000000)   // transparent
-val ScrimEnd          = Color(0xCC000000)   // 80% black
+// ── Gradient helpers (Scrims) ────────────────────────────────────────────────
+val ScrimStart        = Color(0x000B0B0F)   // transparent
+val ScrimEnd          = Color(0xFF0B0B0F)   // Vantablack cinema scrim end

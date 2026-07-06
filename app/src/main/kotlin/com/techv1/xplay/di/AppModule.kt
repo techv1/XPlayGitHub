@@ -1,9 +1,16 @@
 package com.techv1.xplay.di
 
+import android.content.Context
+import androidx.room.Room
+import com.techv1.xplay.data.local.XPlayDatabase
+import com.techv1.xplay.data.local.dao.VideoDao
 import com.techv1.xplay.data.remote.XPlayApiService
+import com.techv1.xplay.data.repository.VideoRepositoryImpl
+import com.techv1.xplay.domain.repository.VideoRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,8 +22,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    // TODO: Replace with actual base URL before release
-    private const val BASE_URL = "https://api.xplay.example.com/v1/"
+    private const val BASE_URL = "https://streamtape-backend.vishnusharma72925.workers.dev/v1/"
 
     @Provides
     @Singleton
@@ -42,4 +48,22 @@ object AppModule {
     @Singleton
     fun provideApiService(retrofit: Retrofit): XPlayApiService =
         retrofit.create(XPlayApiService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideDatabase(@ApplicationContext context: Context): XPlayDatabase =
+        Room.databaseBuilder(
+            context,
+            XPlayDatabase::class.java,
+            XPlayDatabase.DATABASE_NAME
+        ).build()
+
+    @Provides
+    @Singleton
+    fun provideVideoDao(db: XPlayDatabase): VideoDao = db.videoDao
+
+    @Provides
+    @Singleton
+    fun provideVideoRepository(api: XPlayApiService, dao: VideoDao): VideoRepository =
+        VideoRepositoryImpl(api, dao)
 }

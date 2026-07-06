@@ -1,0 +1,7 @@
+name = "streamtape-backend"
+main = "index.js"
+compatibility_date = "2026-07-05"
+
+[vars]
+STREAMTAPE_LOGIN = "67039df88009a5123291"
+STREAMTAPE_KEY = "PJk0Og38oJF027z"
